@@ -1,12 +1,11 @@
 @import './reset.css';
 
 body {
-    height: 100vh;
     background-color: #f9f9f9;
 }
 
 .right {
-    float: right
+    float: right;
 }
 
 h1 {
@@ -19,6 +18,7 @@ h1 {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1;
 }
 
 h1 + * {
@@ -27,19 +27,19 @@ h1 + * {
 
 .list {
     display: grid;
-    height: calc(100% - 60px);
+    min-height: calc(100vh - 60px);
     grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-    gap: 30px;
     padding: 30px;
+    gap: 30px;
     place-content: start;
 }
     .list > .item {
         display: inline-block;
         width: 100%;
         padding: 20px;
-        background-color: #fff;
         border: 1px solid #ccc;
         border-radius: 4px;
+        background-color: #fff;
         position: relative;
     }
         .list > .item > .actions {
@@ -48,7 +48,7 @@ h1 + * {
             top: -5px;
             right: 5px;
         }
-            .list > .item > .actions {
+            .list > .item:hover > .actions {
                 display: inline-block;
             }
 
@@ -78,8 +78,8 @@ h1 + * {
     position: fixed;
     top: 0;
     right: 0;
-    left: 0;
     bottom: 0;
+    left: 0;
 }
     .lightbox.show {
         display: block;
@@ -92,14 +92,15 @@ h1 + * {
     }
     .lightbox > .content {
         display: inline-block;
+        min-width: 280px;
+        width: 50%;
+        max-width: 500px;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        min-width: 280px;
-        width: 50%;
-        max-width: 500px;
     }
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -108,8 +109,8 @@ h1 + * {
     color: #fff;
     line-height: 20px;
     font-size: 18px;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
     opacity: 0.9;
 }
     .btn:hover {
@@ -123,7 +124,8 @@ h1 + * {
         background-color: #3b3;
         color: #fff;
     }
-    .btn.edit {
+    .btn.edit,
+    .btn.update {
         background-color: #36f;
         color: #fff;
     }
@@ -137,14 +139,19 @@ h1 + * {
         font-size: 14px;
         border-radius: 2px;
     }
+
 form {
-    display: inline-block;
+    display: none;
     width: 100%;
     padding: 20px;
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 4px 8px #0003;
 }
+    .lightbox[data-form="add"] form.add,
+    .lightbox[data-form="update"] form.update {
+        display: inline-block;
+    }
     form > .title {
         display: inline-block;
         width: 100%;
