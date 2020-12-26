@@ -9,7 +9,7 @@
 
 This project is for educational porpuses only. Pull request are welcome, but priority for my real-life students! Thank you for your cooperation!
 
-<!-- Site published at https://front-end-by-rimantas.github.io/19-grupe-portfolio/ -->
+Site published at https://beatarynkevic.github.io/24-todo-list/
 
 Design: random
 
@@ -22,4 +22,4 @@ Design: random
 - no AJAX (data sending)
 
 ## Authors
-<!-- [Beata](https://github.com/belauzas)  -->
+[Beata](https://github.com/beatarynkevic) 
